@@ -5,7 +5,7 @@ name: Build and Push to Docker Hub
 on:
   push: # Run on every push
     branches: # Specify which branches trigger this workflow
-      - main # Trigger on push to 'main' branch
+      - master # Trigger on push to 'main' branch
 
 # Define the jobs that will be executed by this workflow
 jobs:
