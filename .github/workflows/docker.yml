@@ -36,5 +36,5 @@ jobs:
           context: . # Use current directory as the build context (where Dockerfile is located)
           push: true # Push the image to Docker Hub after building
           tags: | # Assign tags/labels to the Docker image
-            jguimeradev/ttt-app:v1    # Tag as 'v1' (version 1)
-            jguimeradev/ttt-app:${{ github.sha }}  # Tag with commit SHA (unique identifier for this build)
+            jguimeradev/ttt-app:v1
+            jguimeradev/ttt-app:${{ github.sha }}
