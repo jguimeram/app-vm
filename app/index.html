@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe - App2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tic-Tac-Toe</h1>
+            <div id="date-display"></div>
+            <div id="health-status" class="healthy">Health: OK</div>
+        </header>
+
+        <main>
+            <div class="game-info">
+                <p id="turn-indicator">Turn: Player1 (X)</p>
+                <div class="controls">
+                    <label>
+                        <input type="checkbox" id="ai-toggle"> Play against Machine
+                    </label>
+                    <button id="reset-btn">Reset Game</button>
+                </div>
+            </div>
+
+            <div id="board" class="board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <div id="message" class="message"></div>
+        </main>
+
+        <aside class="history-section">
+            <h2>Match History</h2>
+            <ul id="history-list"></ul>
+            <button id="clear-history">Clear History</button>
+        </aside>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

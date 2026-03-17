@@ -1,0 +1,167 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-color: #bb86fc;
+    --secondary-color: #03dac6;
+    --error-color: #cf6679;
+    --cell-size: 100px;
+    --border-radius: 8px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+h1 { margin: 0; font-size: 1.5rem; color: var(--accent-color); }
+
+#date-display { font-size: 0.9rem; opacity: 0.8; }
+
+#health-status {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #333;
+}
+.healthy { color: var(--secondary-color); }
+.warning { color: #ffd700; }
+
+.game-info {
+    margin-bottom: 1.5rem;
+}
+
+#turn-indicator { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--cell-size));
+    grid-template-rows: repeat(3, var(--cell-size));
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: #2c2c2c;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: #3d3d3d;
+}
+
+.cell.taken {
+    cursor: not-allowed;
+}
+
+.message {
+    height: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.history-section {
+    margin-top: 2rem;
+    text-align: left;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+}
+
+h2 { font-size: 1.1rem; color: var(--secondary-color); }
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+}
+
+#history-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.8; }
+
+#reset-btn { background-color: var(--secondary-color); }
+#clear-history {
+    background: transparent;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    margin-top: 10px;
+}
+
+/* Confetti Effect */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    position: absolute;
+    top: -10px;
+    z-index: 1000;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
