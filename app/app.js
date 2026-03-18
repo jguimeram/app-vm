@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 4, 8], [2, 4, 6]             // Diagonals
     ];
 
-    // --- Core Game Logic ---
+
 
     function handleCellClick(e) {
         const clickedCell = e.target;
@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 winner = aiToggle.checked ? 'Machine' : player2Name;
             }
-            
+
             message.innerText = `${winner} wins`;
             message.style.color = '#03dac6';
             gameActive = false;
             saveMatchResult(winner);
             updateHealthStatus('Finished', 'healthy');
             triggerConfetti();
-            
+
             // Auto-reset after 5 seconds
             setTimeout(resetGame, 5000);
             return;
@@ -84,8 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
             message.innerText = "It's a Draw!";
             gameActive = false;
             saveMatchResult('Draw');
-            
-            // Auto-reset after 5 seconds
             setTimeout(resetGame, 5000);
             return;
         }
@@ -122,12 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
         turnIndicator.innerText = `Turn: ${name} (${currentPlayer})`;
     }
 
-    // --- AI Logic ---
+    // AI 
 
     function makeAiMove() {
         if (!gameActive) return;
 
-        // Simple AI: Find empty cells and pick one randomly
         const emptyIndices = gameState
             .map((val, idx) => val === "" ? idx : null)
             .filter(val => val !== null);
@@ -137,8 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             makeMove(randomIndex);
         }
     }
-
-    // --- Match History ---
 
     function saveMatchResult(winner) {
         const history = JSON.parse(localStorage.getItem('ttt_history') || '[]');
@@ -159,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ).join('');
     }
 
-    // --- Utility Functions ---
 
     function resetGame() {
         currentPlayer = 'X';
@@ -185,8 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         healthStatus.className = className;
     }
 
-    // --- Event Listeners ---
-
     cells.forEach(cell => cell.addEventListener('click', handleCellClick));
     resetBtn.addEventListener('click', resetGame);
     clearHistoryBtn.addEventListener('click', () => {
@@ -194,7 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderHistory();
     });
 
-    // --- Initialization ---
     updateDateTime();
     setInterval(updateDateTime, 1000);
     renderHistory();
